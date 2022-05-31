@@ -4,8 +4,9 @@ const port = process.env.PORT || 3977;
 const { API_VERSION, IP_SERVER, PORT_DB } = require("./config");
 
 //mongoose.connect(`mongodb://${IP_SERVER}:${PORT_DB}/camilovallejosprovoste`,  -- localhost
+//`mongodb+srv://admin:Mern1234@portafoliodb.vx4wb.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`, -- producción
 mongoose.connect(
-  `mongodb+srv://admin:Mern1234@portafoliodb.vx4wb.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`,
+  `mongodb://${IP_SERVER}:${PORT_DB}/camilovallejosprovoste`,
   { useNewUrlParser: true, useUnifiedTopology: true },
   (err, res) => {
     if (err) {

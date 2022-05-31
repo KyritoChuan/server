@@ -30,15 +30,15 @@ function getCourses(req, res) {
     .sort({ order: "asc" })
     .exec((err, coursesStored) => {
       if (err) {
-        res.status(500).send({ code: 500, message: "Error en el servidor." });
+        res.status(500).send({ ok: false, message: "Error en el servidor." });
       } else {
         if (!coursesStored) {
           res
             .status(404)
-            .send({ code: 404, message: "No se ha encontrado ningún curso." });
+            .send({ ok: false, message: "No se ha encontrado ningún curso." });
         } else {
           res.status(200).send({
-            code: 200,
+            ok: true,
             courses: coursesStored,
           });
         }
