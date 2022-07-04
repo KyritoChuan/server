@@ -1,6 +1,6 @@
 const fs = require("fs");
 const path = require("path");
-const bcrypt = require("bcrypt");
+const bcrypt = require("bcryptjs");
 const jwt = require("../services/jwt");
 const User = require("../models/user");
 const { use } = require("../routers/user");
@@ -96,7 +96,7 @@ function getUsersActive(req, res) {
     if (!users) {
       res.status(404).send({ ok: false, message: "No se ha encontrado ningún usuario" });
     } else {
-      res.status(200).send({ok: true, users });
+      res.status(200).send({ ok: true, users });
     }
   });
 }

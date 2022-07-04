@@ -1,12 +1,11 @@
 const mongoose = require("mongoose");
 const app = require("./app");
 const port = process.env.PORT || 3977;
-const { API_VERSION, IP_SERVER, PORT_DB } = require("./config");
+const { API_VERSION, IP_SERVER, AZURE_DB } = require("./config");
 
-//mongoose.connect(`mongodb://${IP_SERVER}:${PORT_DB}/camilovallejosprovoste`,  -- localhost
-//`mongodb+srv://admin:Mern1234@portafoliodb.vx4wb.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`, -- producción
+
 mongoose.connect(
-  `mongodb://${IP_SERVER}:${PORT_DB}/camilovallejosprovoste`,
+  AZURE_DB,
   { useNewUrlParser: true, useUnifiedTopology: true },
   (err, res) => {
     if (err) {
